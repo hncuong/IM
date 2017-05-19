@@ -1,0 +1,8 @@
+imm_sigmod2017: with edge weight 0.1, but the initial number for random generator is constant (95082)
+imm_sigmod2017_new: with edge weight 0.1, the initial number for random generator is random. 
+
+imm_discrete: normal edge weight, the initial number for random generator is constant;
+imm_discrete_new: normal edge weight, the inital number for random generator is random.
+
+imm_sigmod2017_memory: add acurate memory measurement based on imm_sigmod2017 version. (with header file: MeasureM.h)
+
