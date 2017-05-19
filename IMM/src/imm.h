@@ -32,29 +32,22 @@ class Imm
 
         static double step1(InfGraph &g, const Argument & arg)
         {
-            double epsilon_prime = arg.epsilon * sqrt(2);
-            //int num=0;
+            double epsilon_prime = arg.epsilon * sqrt(2);            
             Timer t(1, "step1");
             for (int x = 1; ; x++)
             {
                 
                 int64 ci = (2+2/3 * epsilon_prime)* ( log(g.n) + Math::logcnk(g.n, arg.k) + log(Math::log2(g.n))) * pow(2.0, x) / (epsilon_prime* epsilon_prime);                
-                //int64 ci = (2+2/3 * epsilon_prime)* ( log(g.n) + log(Math::log2(g.n))) * pow(2.0, x) / (epsilon_prime * epsilon_prime); 
+                
 
                 g.build_hyper_graph_r(ci, arg);              
 
                 g.build_seedset(arg.k);
                 double ept = g.InfluenceHyperGraph()/g.n;
-                //num++;
-                //double estimate_influence = ept * g.n;
-                //INFO(x, estimate_influence);
+                
                 if (ept > 1 / pow(2.0, x))
                 {
-                    double OPT_prime = ept * g.n / (1+epsilon_prime);
-                    //cout<<"num="<<num<<endl;
-                    //INFO("step1", OPT_prime);
-                    //INFO("step1", OPT_prime * (1+epsilon_prime));
-                    //cout<<"OPT_prime="<<OPT_prime<<endl;
+                    double OPT_prime = ept * g.n / (1+epsilon_prime);                
                     return OPT_prime;
                 }
             }
@@ -72,12 +65,11 @@ class Imm
 
             int64 R = 2.0 * g.n *  sqr((1-1/e) * alpha + beta) /  OPT_prime / arg.epsilon / arg.epsilon ;
 
-            //R/=100;
-            //cout<<"TotalSample "<<R<<endl;
+          
             g.build_hyper_graph_r(R, arg);
             
             rr_num+=R;
-            //cout<<"TotalSample "<<R<<endl;
+           
 
             g.build_seedset(arg.k);
             double opt = g.InfluenceHyperGraph();
@@ -85,34 +77,23 @@ class Imm
         }
     public:
         
-        //unsigned int rr_num=0;
+       
 
         static void InfluenceMaximize(InfGraph &g, const Argument &arg)
         {
             Timer t(100, "InfluenceMaximize(Total Time)");            
 
-            //INFO("########## Step1 ##########");
-
-            // debugging mode lalala
-            //g.init_hyper_graph();
+   
             for (int i=0;i<arg.time;i++)
             {
                 g.init_hyper_graph();
                 double OPT_prime;
                 OPT_prime = step1(g, arg ); //estimate OPT
 
-
-
-            //INFO("########## Step2 ##########");
-
-
-                //double opt_lower_bound = OPT_prime;
-                //INFO(opt_lower_bound);
                 step2(g, arg, OPT_prime);
             }
             disp_mem_usage();
             cout<<"TotalSample "<<rr_num/arg.time<<endl;
-            //INFO("step2 finish");
 
         }
 

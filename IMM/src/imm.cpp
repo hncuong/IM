@@ -112,55 +112,6 @@ void Run(int argn, char **argv)
     run_with_parameter(g, arg);
 }
 
-/*
- * * convert from an integer to a string
- * */
-/*
-string intToStr(int i) {
-  stringstream ss;
-  ss << i;
-  return ss.str();
-}
-
-*
- * * convert from a strong to an integer
- * */
-/*
-unsigned int strToInt(string s) {
-    unsigned int i;
-    istringstream myStream(s);
-
-    if (myStream>>i) {
-      return i;
-     } else {
-       cout << "String " << s << " is not a number." << endl;
-      return atoi(s.c_str());
-    }
-   return i;
-}
-
-
-float getCurrentMemoryUsage() {
-
-   string pid = intToStr(unsigned(getpid()));
-   string outfile = "tmp_" + pid + ".txt";
-   string command = "pmap " + pid + " | grep -i Total | awk '{print $2}' > " + outfile;
-   system(command.c_str());
-
-   string mem_str;
-   ifstream ifs(outfile.c_str());
-   std::getline(ifs, mem_str);
-   ifs.close();
-
-   mem_str = mem_str.substr(0, mem_str.size()-1);
-   
-   float mem = (float)strToInt(mem_str);
-   command = "rm " + outfile;
-   system(command.c_str());
-   return mem/1024;
-   return 0;
-}
-*/
 
 int main(int argn, char **argv)
 {
