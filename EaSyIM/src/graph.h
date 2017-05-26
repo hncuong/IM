@@ -16,13 +16,13 @@ class Graph
 public:
     int n, m, k;
     vector<int> inDeg;
-    vector<vector<int>> gT;
+    vector<vector<int>> gT, g;
 
-#ifdef CONTINUOUS
-    vector<vector<dpair>> probT;
-#endif
+//#ifdef CONTINUOUS
+//    vector<vector<dpair>> probT;
+//#endif
 #ifdef DISCRETE
-    vector<vector<double>> probT;
+    vector<vector<double>> probT, prob;
 #endif
 
 
@@ -64,7 +64,10 @@ public:
     void add_edge(int a, int b, double p)
     {
         probT[b].push_back(p);
+        probT[a].push_back(p);
+
         gT[b].push_back(a);
+        g[a].push_back(b);
         inDeg[b]++;
     }
 #endif
@@ -184,9 +187,11 @@ public:
         FOR(i, n)
         {
             gT.push_back(vector<int>());
+            g.push_back(vector<int>());
             hasnode.push_back(false);
 #ifdef DISCRETE
             probT.push_back(vector<double>());
+            prob.push_back(vector<double>());
 #endif
 #ifdef CONTINUOUS
             probT.push_back(vector<dpair>());
