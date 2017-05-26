@@ -59,6 +59,6 @@ void disp_mem_usage(){
     vm/=1024;
     rss/=1024;
     //cout<< "Memory Usage:" << msg << " vm:" << vm << " MB  rss:" << rss << " MB"<<endl;
-    cout<< "PhysicalMemory: "<< rss << " MB"<< endl;
+    cout<< "PhysicalMemory: "<< rss << " MB"<< endl;   //
     cout<< "VirtualMemory: "<< vm << " MB"<< endl;
 }

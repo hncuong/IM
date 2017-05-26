@@ -3,6 +3,8 @@
 
 using namespace std;
 
+//this one gives the high water mark memory
+
 unsigned int getProcMemory(){
 	struct rusage r_usage;
 	getrusage(RUSAGE_SELF, &r_usage);
