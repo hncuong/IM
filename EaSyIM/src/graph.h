@@ -57,7 +57,7 @@ public:
     void add_edge(int a, int b, double p)
     {
         probT[b].push_back(p);
-        probT[a].push_back(p);
+        prob[a].push_back(p);
 
         gT[b].push_back(a);
         g[a].push_back(b);
