@@ -50,7 +50,7 @@ void Run(int argn, char **argv)
     {
         if (argv[i] == string("-help") || argv[i] == string("--help") || argn == 1)
         {
-            cout << "./easyim -dataset *** -l *** -k ***  -model IC|LT|TR|CONT " << endl;
+            cout << "./easyim -dataset *** -l *** -k ***  -model IC|LT|TR|CONT -time ***" << endl;
             return ;
         }
         if (argv[i] == string("-dataset"))

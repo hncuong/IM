@@ -1,11 +1,11 @@
 //
 // Created by cuonghn on 26/5/17.
 //
+#include <chrono>
+#include <ctime>
+#include <ratio>
 
-#ifndef IM_EASYIM_H
-#define IM_EASYIM_H
-
-#endif //IM_EASYIM_H
+using namespace std::chrono;
 
 
 class EasyIM
@@ -21,6 +21,5 @@ public:
             g.BuildSeedSetGreedy(arg.k, arg.l);
         }
         disp_mem_usage();
-        cout<<"TotalSample "<<rr_num/arg.time<<endl;
     }
 };

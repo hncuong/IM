@@ -7,14 +7,12 @@
 //
 //#endif //IM_INFGRAPH_H
 
-#include "graph.h"
-
 class InfGraph : public Graph{
 private:
     vector<bool > visit;
 public:
-    vector<int > cur_score;
-    vector<int > new_score;
+    vector<double > cur_score;
+    vector<double > new_score;
 
     InfGraph(string folder, string graph_file): Graph(folder, graph_file){
         srand(time(NULL));
