@@ -15,9 +15,9 @@ public:
 
     InfGraph(string folder, string graph_file): Graph(folder, graph_file)
     {
-        srand(time(NULL));
-        sfmt_init_gen_rand(&sfmtSeed , rand());
-        //sfmt_init_gen_rand(&sfmtSeed , 95082);
+        //srand(time(NULL));
+        //sfmt_init_gen_rand(&sfmtSeed , rand());
+        sfmt_init_gen_rand(&sfmtSeed , 95082);
         init_hyper_graph();
         visit = vector<bool> (n);
         visit_mark = vector<int> (n);
