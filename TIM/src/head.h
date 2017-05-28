@@ -43,6 +43,9 @@ blalba this is old blabla
 #include <vector>
 #include <map>
 #include <deque>
+#include <fcntl.h>    /* For O_RDWR */
+#include <unistd.h>   /* For open(), creat() */
+#include <sys/mman.h> // foe munmap
 using namespace std;
 typedef unsigned int uint;
 typedef unsigned char uint8;
