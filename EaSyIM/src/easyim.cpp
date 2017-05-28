@@ -50,7 +50,7 @@ void Run(int argn, char **argv)
     {
         if (argv[i] == string("-help") || argv[i] == string("--help") || argn == 1)
         {
-            cout << "./easyim -dataset *** -l *** -k ***  -model IC|LT|TR|CONT -time ***" << endl;
+            cout << "./easyim -dataset *** -l *** -k ***  -model IC|LT|WC -time ***" << endl;
             return ;
         }
         if (argv[i] == string("-dataset"))
@@ -65,17 +65,15 @@ void Run(int argn, char **argv)
             arg.time = atoi(argv[i+1]);
     }
     ASSERT(arg.dataset != "");
-    ASSERT(arg.model == "IC" || arg.model == "LT" || arg.model == "TR" || arg.model=="CONT");
+    ASSERT(arg.model == "IC" || arg.model == "LT" || arg.model == "WC");
 
     string graph_file;
     if (arg.model == "IC")
         graph_file = arg.dataset + "graph_ic.inf";
     else if (arg.model == "LT")
         graph_file = arg.dataset + "graph_lt.inf";
-    else if (arg.model == "TR")
-        graph_file = arg.dataset + "graph_tr.inf";
-    else if (arg.model == "CONT")
-        graph_file = arg.dataset + "graph_cont.inf";
+    else if (arg.model == "WC")
+        graph_file = arg.dataset + "graph_ic.inf";
     else
     ASSERT(false);
 
@@ -96,10 +94,8 @@ void Run(int argn, char **argv)
         g.setInfuModel(InfGraph::IC);
     else if (arg.model == "LT")
         g.setInfuModel(InfGraph::LT);
-    else if (arg.model == "TR")
-        g.setInfuModel(InfGraph::IC);
-    else if (arg.model == "CONT")
-        g.setInfuModel(InfGraph::CONT);
+    else if (arg.model == "WC")
+        g.setInfuModel(InfGraph::WC);
     else
     ASSERT(false);
 
