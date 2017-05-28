@@ -13,6 +13,7 @@ private:
 public:
     vector<double > cur_score;
     vector<double > new_score;
+    vector<vector<int>> hyperG;
 
     InfGraph(string folder, string graph_file): Graph(folder, graph_file){
         srand(time(NULL));
@@ -75,15 +76,13 @@ public:
         q.clear();
         q.push_back(seed_node);
         visit[seed_node] = true;
-
-        while (!q.empty())
-        {
-            int expand = q.front();
-            q.pop_front();
-            if (influModel == IC)
-            {
+        // update visited nodes start from seed node
+        if (influModel == IC) {
+            while (!q.empty()) {
+                int expand = q.front();
+                q.pop_front();
                 int i = expand;
-                for (int j = 0; j < (int)g[i].size(); j++)
+                for (int j = 0; j < (int) g[i].size(); j++)
                 {
                     int v = g[i][j];
                     double randDouble = sfmt_genrand_real1(&sfmtSeed);
@@ -91,12 +90,12 @@ public:
                         continue;
                     if (visit[v])
                         continue;
-                    if (!visit[v])
-                    {
+                    if (!visit[v]) {
                         visit[v] = true;
                     }
                     q.push_back(v);
                 }
+
             }
         }
     }
