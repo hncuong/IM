@@ -15,9 +15,21 @@ public:
     vector<double > new_score;
     vector<vector<int>> hyperG;
 
-    InfGraph(string folder, string graph_file): Graph(folder, graph_file){
-        srand(time(NULL));
-        sfmt_init_gen_rand(&sfmtSeed , rand());
+    enum InfluModel {IC, LT, WC};
+    InfluModel influModel;
+    void setInfuModel(InfluModel p)
+    {
+        influModel = p;
+        TRACE(influModel == IC);
+        TRACE(influModel == LT);
+        TRACE(influModel == WC);
+    }
+
+    InfGraph(string folder, string graph_file, InfluModel influModel): Graph(folder, graph_file){
+//        srand(time(NULL));
+//        sfmt_init_gen_rand(&sfmtSeed , rand());
+        sfmt_init_gen_rand(&sfmtSeed , 95082);
+        setInfuModel(influModel);
         init_visit_state();
         init_score();
     }

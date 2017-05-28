@@ -77,12 +77,22 @@ void Run(int argn, char **argv)
     else
     ASSERT(false);
 
+    InfGraph::InfluModel influModel;
+
+    if (arg.model == "IC")
+        influModel = InfGraph::IC;
+    else if (arg.model == "LT")
+        influModel = InfGraph::LT;
+    else if (arg.model == "WC")
+        influModel = InfGraph::WC;
+    else
+    ASSERT(false);
 
     cout<<"Before load the graph"<<endl;
     disp_mem_usage();
     cout<<endl;
 
-    InfGraph g(arg.dataset, graph_file);
+    InfGraph g(arg.dataset, graph_file, influModel);
 
 
     cout<<"After load the graph"<<endl;
@@ -90,14 +100,7 @@ void Run(int argn, char **argv)
     cout<<endl;
 
 
-    if (arg.model == "IC")
-        g.setInfuModel(InfGraph::IC);
-    else if (arg.model == "LT")
-        g.setInfuModel(InfGraph::LT);
-    else if (arg.model == "WC")
-        g.setInfuModel(InfGraph::WC);
-    else
-    ASSERT(false);
+
 
     //INFO(arg.T);
 
