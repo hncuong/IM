@@ -51,7 +51,27 @@ public:
     void EasyIMAssignScore(int max_length)
     {
         init_score();
-        for (int step=0; step < max_length; step++){
+        if (influModel == IC)
+        {
+            // for each node
+            for (int i = 0; i < n; i++)
+            {
+                // for each outgoing edge from node i
+                if (visit[i]) continue;
+                for (int j = 0; j < (int)g[i].size(); j++)
+                {
+                    int v = g[i][j];
+                    if (!visit[v])
+                    {
+                        new_score[i] += 0.1 * (1 + cur_score[v]);
+                    }
+                }
+            }
+            // update current score after each step
+            cur_score = new_score;
+        } else
+        for (int step=0; step < max_length; step++)
+        {
             // for each node
             for (int i = 0; i < n; i++)
             {
@@ -77,8 +97,10 @@ public:
         q.push_back(seed_node);
         visit[seed_node] = true;
         // update visited nodes start from seed node
-        if (influModel == IC) {
-            while (!q.empty()) {
+        if (influModel == WC)
+        {
+            while (!q.empty())
+            {
                 int expand = q.front();
                 q.pop_front();
                 int i = expand;
@@ -90,12 +112,32 @@ public:
                         continue;
                     if (visit[v])
                         continue;
-                    if (!visit[v]) {
+                    if (!visit[v])
+                    {
                         visit[v] = true;
                     }
                     q.push_back(v);
                 }
 
+            }
+        } else if (influModel == IC)
+        {
+            int expand = q.front();
+            q.pop_front();
+            int i = expand;
+            for (int j = 0; j < (int) g[i].size(); j++)
+            {
+                int v = g[i][j];
+                double randDouble = sfmt_genrand_real1(&sfmtSeed);
+                if (randDouble > 0.1)
+                    continue;
+                if (visit[v])
+                    continue;
+                if (!visit[v])
+                {
+                    visit[v] = true;
+                }
+                q.push_back(v);
             }
         }
     }
