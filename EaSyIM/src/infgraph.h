@@ -1,39 +1,66 @@
 //
 // Created by cuonghn on 26/5/17.
 //
-
-//#ifndef IM_INFGRAPH_H
-//#define IM_INFGRAPH_H
-//
-//#endif //IM_INFGRAPH_H
-
+#include "graph.h"
 class InfGraph : public Graph{
 private:
     vector<bool > visit;
+    vector<double > visit_thresh_hold;
 public:
     vector<double > cur_score;
     vector<double > new_score;
+    vector<vector<int>> hyperG;
 
-    InfGraph(string folder, string graph_file): Graph(folder, graph_file){
-        srand(time(NULL));
-        sfmt_init_gen_rand(&sfmtSeed , rand());
-        init_visit_state();
+    enum InfluModel {IC, LT, WC};
+    InfluModel influModel;
+    void setInfuModel(InfluModel p)
+    {
+        influModel = p;
+        TRACE(influModel == IC);
+        TRACE(influModel == LT);
+        TRACE(influModel == WC);
+    }
+
+    InfGraph(string folder, string graph_file, InfluModel influModel): Graph(folder, graph_file){
+//        srand(time(NULL));
+//        sfmt_init_gen_rand(&sfmtSeed , rand());
+        sfmt_init_gen_rand(&sfmtSeed , 95082);
+        setInfuModel(influModel);
+        if (influModel == IC || influModel == WC)
+            init_visit_state();
+        else if (influModel == LT)
+            init_visit_thresh_hold();
         init_score();
     }
-    void init_visit_state(){
-        visit = vector<bool > (n);
+
+    void init_visit_state()
+    {
+        visit = vector<bool > (n, false);
     }
 
-    void init_score(){
-        cur_score = vector<double > (n);
-        new_score = vector<double > (n);
+    void init_visit_thresh_hold()
+    {
+        visit_thresh_hold = vector<double> (n, 1.0);
+    }
+
+    void init_score()
+    {
+        cur_score = vector<double > (n, 0.0);
+        new_score = vector<double > (n, 0.0);
     }
 
     deque<int> q;
     sfmt_t sfmtSeed;
     set<int> seedSet;
+    int visit_mark;
+
+
+#include "assignscore.h"
+#include "activatenodes.h"
+
     void BuildSeedSetGreedy(int k, int l)
     {
+        visit_mark = 0;
         seedSet.clear();
         ASSERT(k > 0);
         ASSERT(k < n);
@@ -44,60 +71,6 @@ public:
             int id = t - cur_score.begin();
             seedSet.insert(id);
             UpdateActivatedNodes(id);
-        }
-    }
-
-    void EasyIMAssignScore(int max_length)
-    {
-        init_score();
-        for (int step=0; step < max_length; step++){
-            // for each node
-            for (int i = 0; i < n; i++)
-            {
-                // for each outgoing edge from node i
-                if (visit[i]) continue;
-                for (int j = 0; j < (int)g[i].size(); j++)
-                {
-                    int v = g[i][j];
-                    if (!visit[v])
-                    {
-                        new_score[i] += prob[i][j] * (1 + cur_score[v]);
-                    }
-                }
-            }
-            // update current score
-            cur_score = new_score;
-        }
-    }
-
-    void UpdateActivatedNodes(int seed_node)
-    {
-        q.clear();
-        q.push_back(seed_node);
-        visit[seed_node] = true;
-
-        while (!q.empty())
-        {
-            int expand = q.front();
-            q.pop_front();
-            if (influModel == IC)
-            {
-                int i = expand;
-                for (int j = 0; j < (int)g[i].size(); j++)
-                {
-                    int v = g[i][j];
-                    double randDouble = sfmt_genrand_real1(&sfmtSeed);
-                    if (randDouble > prob[i][j])
-                        continue;
-                    if (visit[v])
-                        continue;
-                    if (!visit[v])
-                    {
-                        visit[v] = true;
-                    }
-                    q.push_back(v);
-                }
-            }
         }
     }
 };

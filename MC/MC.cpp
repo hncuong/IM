@@ -47,6 +47,16 @@ int main(int argn, char*argv[])
 
 
 	double influence = mi.Influence(count);
+	cout << "Number of seeds = " << mi.seedSet.size() << endl;
+	if (mi.seedSet.size() <= 100)
+	{
+		cout << "Seed set: " ;
+		for (auto seed: mi.seedSet)
+		{
+			cout << seed << " ";
+		}
+		cout << endl;
+	}
 	cout << "count " << count << endl;
 	cout << "influence " << influence << endl;
 	

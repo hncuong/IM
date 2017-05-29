@@ -20,15 +20,15 @@ public:
 
     vector<vector<double>> probT, prob;
 
-    enum InfluModel {IC, LT, CONT};
-    InfluModel influModel;
-    void setInfuModel(InfluModel p)
-    {
-        influModel = p;
-        TRACE(influModel == IC);
-        TRACE(influModel == LT);
-        TRACE(influModel == CONT);
-    }
+//    enum InfluModel {IC, LT, WC};
+//    InfluModel influModel;
+//    void setInfuModel(InfluModel p)
+//    {
+//        influModel = p;
+//        TRACE(influModel == IC);
+//        TRACE(influModel == LT);
+//        TRACE(influModel == WC);
+//    }
 
     string folder;
     string graph_file;

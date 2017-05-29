@@ -30,3 +30,16 @@
 *.exe
 *.out
 *.app
+
+# idea
+cmake-build-debug
+.idea
+
+# Exec files
+EaSyIM/easyim
+IMM/imm_discrete
+MC/montecarlo
+TIM/tim
+
+# seed file
+seeds.txt
