@@ -13,7 +13,7 @@ public:
 
     enum InfluModel {IC, LT, WC};
     InfluModel influModel;
-    void setInfuModel(InfluModel p)
+    void setInfuModel(const InfluModel& p)
     {
         influModel = p;
         TRACE(influModel == IC);
@@ -21,10 +21,10 @@ public:
         TRACE(influModel == WC);
     }
 
-    InfGraph(string folder, string graph_file, InfluModel influModel): Graph(folder, graph_file){
-//        srand(time(NULL));
-//        sfmt_init_gen_rand(&sfmtSeed , rand());
-        sfmt_init_gen_rand(&sfmtSeed , 95082);
+    InfGraph(const string& folder, const string& graph_file,
+             const InfluModel& influModel): Graph(folder, graph_file){
+        srand(time(NULL));
+        sfmt_init_gen_rand(&sfmtSeed , rand());
         setInfuModel(influModel);
         if (influModel == IC || influModel == WC)
             init_visit_state();
@@ -40,7 +40,8 @@ public:
 
     void init_visit_thresh_hold()
     {
-        visit_thresh_hold = vector<double> (n, 1.0);
+        // assign all thresh hold to 1.1 > 1 denote unvisited
+        visit_thresh_hold = vector<double> (n, 1.1);
     }
 
     void init_score()

@@ -73,11 +73,11 @@ void UpdateActivatedNodes(int seed_node)
             {
                 int v = g[i][j];
                 // if activated : skip
-                if (visit_thresh_hold[v] <= 0.0)
+                if (visit_thresh_hold[v] < 0.0)
                     continue;
                 double randDouble;
-                // generate threshold if not generated
-                if (visit_thresh_hold[v] == 1.0)
+                // generate threshold if not generated (node unvisited)
+                if (visit_thresh_hold[v] == 1.1)
                 {
                     randDouble = sfmt_genrand_real1(&sfmtSeed);
                     visit_thresh_hold[v] = randDouble;
@@ -88,14 +88,14 @@ void UpdateActivatedNodes(int seed_node)
                 {
                     int t = gT[v][k];
                     // for activated node
-                    if (visit_thresh_hold[t] <= 0.0)
+                    if (visit_thresh_hold[t] < 0.0)
                         randDouble -= probT[v][k];
                 }
                 // if thresh hold <= 0: activate it
                 if (randDouble <= 0.0)
                 {
                     q.push_back(v);
-                    visit_thresh_hold[v] = 0.0;
+                    visit_thresh_hold[v] = -0.1;
                     visit_mark++;
                 }
             }
