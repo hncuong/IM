@@ -15,7 +15,6 @@ public:
     int time;
 };
 
-#include "graph.h"
 #include "infgraph.h"
 #include "easyim.h"
 
@@ -38,7 +37,7 @@ void run_with_parameter(InfGraph &g, const Argument & arg)
 
 
     INFO(g.seedSet);
-    //INFO(g.InfluenceHyperGraph());
+    INFO(g.visit_mark);
     Timer::show(arg.time);
 }
 void Run(int argn, char **argv)
@@ -98,11 +97,6 @@ void Run(int argn, char **argv)
     cout<<"After load the graph"<<endl;
     disp_mem_usage();
     cout<<endl;
-
-
-
-
-    //INFO(arg.T);
 
     run_with_parameter(g, arg);
 }
