@@ -62,7 +62,7 @@ void UpdateActivatedNodes(int seed_node)
     }
     else if (influModel == LT)
     {
-        visit_thresh_hold[seed_node] = 0.0;
+        visit_thresh_hold[seed_node] = -1.0;
         while (!q.empty())
         {
             int expand = q.front();
