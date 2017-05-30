@@ -40,8 +40,8 @@ public:
 
     void init_visit_thresh_hold()
     {
-        // assign all thresh hold to 1.1 > 1 denote unvisited
-        visit_thresh_hold = vector<double> (n, 1.1);
+        // assign all thresh hold to > 1 denote unvisited
+        visit_thresh_hold = vector<double> (n, 2.0);
     }
 
     void init_score()

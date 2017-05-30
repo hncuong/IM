@@ -77,7 +77,7 @@ void UpdateActivatedNodes(int seed_node)
                     continue;
                 double randDouble;
                 // generate threshold if not generated (node unvisited)
-                if (visit_thresh_hold[v] == 1.1)
+                if (visit_thresh_hold[v] > 1.0)
                 {
                     randDouble = sfmt_genrand_real1(&sfmtSeed);
                     visit_thresh_hold[v] = randDouble;
@@ -95,7 +95,7 @@ void UpdateActivatedNodes(int seed_node)
                 if (randDouble <= 0.0)
                 {
                     q.push_back(v);
-                    visit_thresh_hold[v] = -0.1;
+                    visit_thresh_hold[v] = -1.0;
                     visit_mark++;
                 }
             }
