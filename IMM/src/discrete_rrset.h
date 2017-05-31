@@ -29,7 +29,7 @@ int BuildHypergraphNode(int uStart, int hyperiiid)
                 int v = gT[i][j];
                 n_visit_edge++;
                 double randDouble = sfmt_genrand_real1(&sfmtSeed);
-                if (randDouble > probT[i][j])
+                if (randDouble > 0.1)
                     continue;
                 if (visit[v])
                     continue;
@@ -42,6 +42,30 @@ int BuildHypergraphNode(int uStart, int hyperiiid)
                 q.push_back(v);
                     ASSERT((int)hyperGT.size() > hyperiiid);
                     hyperGT[hyperiiid].push_back(v);
+            }
+        }
+        else if (influModel == WC)
+        {
+            int i = expand;
+            for (int j = 0; j < (int)gT[i].size(); j++)
+            {
+                //int u=expand;
+                int v = gT[i][j];
+                n_visit_edge++;
+                double randDouble = sfmt_genrand_real1(&sfmtSeed);
+                if (randDouble > probT[i][j])
+                    continue;
+                if (visit[v])
+                    continue;
+                if (!visit[v])
+                {
+                    ASSERT(n_visit_mark < n);
+                    visit_mark[n_visit_mark++] = v;
+                    visit[v] = true;
+                }
+                q.push_back(v);
+                ASSERT((int)hyperGT.size() > hyperiiid);
+                hyperGT[hyperiiid].push_back(v);
             }
         }
         else if (influModel == LT)

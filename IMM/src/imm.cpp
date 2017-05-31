@@ -52,7 +52,7 @@ void Run(int argn, char **argv)
     {
         if (argv[i] == string("-help") || argv[i] == string("--help") || argn == 1)
         {
-            cout << "./tim -dataset *** -epsilon *** -k ***  -model IC|LT|TR|CONT " << endl;
+            cout << "./tim -dataset *** -epsilon *** -k ***  -model IC|LT|WC|TR|CONT " << endl;
             return ;
         }
         if (argv[i] == string("-dataset")) 
@@ -69,13 +69,15 @@ void Run(int argn, char **argv)
             arg.time = atoi(argv[i+1]);
     }
     ASSERT(arg.dataset != "");
-    ASSERT(arg.model == "IC" || arg.model == "LT" || arg.model == "TR" || arg.model=="CONT");
+    ASSERT(arg.model == "IC" || arg.model == "LT" || arg.model == "WC" || arg.model=="CONT");
 
     string graph_file;
     if (arg.model == "IC")
         graph_file = arg.dataset + "graph_ic.inf";
     else if (arg.model == "LT")
         graph_file = arg.dataset + "graph_lt.inf";
+    else if (arg.model == "WC")
+        graph_file = arg.dataset + "graph_ic.inf";
     else if (arg.model == "TR")
         graph_file = arg.dataset + "graph_tr.inf";
     else if (arg.model == "CONT")

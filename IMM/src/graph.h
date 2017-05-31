@@ -26,12 +26,13 @@ public:
 #endif
 
 
-    enum InfluModel {IC, LT, CONT};
+    enum InfluModel {IC, LT, WC, CONT};
     InfluModel influModel;
     void setInfuModel(InfluModel p)
     {
         influModel = p;
         TRACE(influModel == IC);
+        TRACE(influModel == WC);
         TRACE(influModel == LT);
         TRACE(influModel == CONT);
     }
