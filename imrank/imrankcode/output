@@ -1,0 +1,9 @@
+./heap.cpp:	cout << "heap size = " << '\t' << h->count << endl;
+./heap.cpp:		cout << h->elements[i].key << '\t' << h->elements[i].value << endl;
+./heap.cpp:	cout << endl;
+./heap.cpp:		cout << h->elements[i].key << '\t'  << h->index[h->elements[i].key] << endl;
+./heap.cpp:	//cout << "decreaseKey phase" << endl;
+./heap.cpp:		//cout << "curIndex = " << curIndex << endl;
+./heap.cpp:		//cout << "curIndex = " << curIndex << endl;
+./heap.cpp:	//cout << "remove phase" << endl;
+./heap.cpp:	//	cout << endl <<  h->elements[1].key << '\t' << h->elements[1].value << endl << endl;

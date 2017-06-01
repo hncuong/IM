@@ -1,0 +1,8 @@
+phase : 10
+propModel : IC
+probGraphFile : datasets/hep_WC.inf 
+mcruns : 10000
+outdir : output
+budget : 50
+celfPlus : 1
+startIt : 2

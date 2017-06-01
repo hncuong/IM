@@ -1,0 +1,20 @@
+﻿빌드 시작: 2011-10-25 오후 7:14:47
+     1>2 노드의 "C:\Users\user\Desktop\max_influence\max_influence\max_influence.vcxproj" 프로젝트(build 대상)입니다.
+     1>InitializeBuildStatus:
+         "Debug\max_influence.unsuccessfulbuild"에 연결(touching)하고 있습니다.
+       ClCompile:
+         모든 출력이 최신 상태입니다.
+       ManifestResourceCompile:
+         모든 출력이 최신 상태입니다.
+       Link:
+         모든 출력이 최신 상태입니다.
+       Manifest:
+         모든 출력이 최신 상태입니다.
+       FinalizeBuildStatus:
+         "Debug\max_influence.unsuccessfulbuild" 파일을 삭제하고 있습니다.
+         "Debug\max_influence.lastbuildstate"에 연결(touching)하고 있습니다.
+     1>"C:\Users\user\Desktop\max_influence\max_influence\max_influence.vcxproj" 프로젝트를 빌드했습니다(build 대상).
+
+빌드했습니다.
+
+경과 시간: 00:00:00.09

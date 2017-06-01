@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="max_influence">
+</Property><Property Name="솔루션 파일" Value="C:\Users\user\Desktop\max_influence\max_influence.sln">
+</Property><Property Name="사용자 옵션 파일" Value="C:\Users\user\Desktop\max_influence\max_influence.suo">
+</Property><Property Name="Date" Value="2011년 10월 21일 금요일">
+</Property><Property Name="Time" Value="오후 17:00">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="max_influence.sln" Description="파일을 C:\Users\user\Desktop\max_influence\max_influence.sln.old(으)로 백업했습니다.">
+</Event><Event ErrorLevel="0" Project="" Source="max_influence.suo" Description="파일을 C:\Users\user\Desktop\max_influence\max_influence.suo.old(으)로 백업했습니다.">
+</Event><Event ErrorLevel="0" Project="max_influence" Source="max_influence\max_influence.vcproj" Description="Converting project file 'C:\Users\user\Desktop\max_influence\max_influence\max_influence.vcproj'.">
+</Event><Event ErrorLevel="1" Project="max_influence" Source="max_influence\max_influence.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="max_influence" Source="max_influence\max_influence.vcproj" Description="Done converting to new project file 'C:\Users\user\Desktop\max_influence\max_influence\max_influence.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="max_influence" Source="max_influence\max_influence.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="max_influence.sln" Description="솔루션을 변환했습니다.">
+</Event><Event ErrorLevel="3" Project="" Source="max_influence.sln" Description="Converted">
+</Event></UpgradeLog>

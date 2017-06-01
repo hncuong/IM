@@ -1,0 +1,68 @@
+﻿빌드 시작: 2012-02-09 오전 12:47:35
+     1>2 노드의 "E:\ftp_access\enter\Wooram_InfluenceMaximization\max_influence_IRIE-5_t-1\max_influence\max_influence.vcxproj" 프로젝트(build 대상)입니다.
+     1>InitializeBuildStatus:
+         "AlwaysCreate"이(가) 지정되었기 때문에 "Release\max_influence.unsuccessfulbuild"을(를) 만들고 있습니다.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt code\irie.cpp code\main.cpp
+         irie.cpp
+     1>code\irie.cpp(107): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>code\irie.cpp(121): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>code\irie.cpp(146): warning C4244: '=' : 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>code\irie.cpp(147): warning C4244: '=' : 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>code\irie.cpp(158): warning C4101: 'seedFileName' :참조되지 않은 지역 변수입니다.
+     1>code\irie.cpp(168): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+     1>code\irie.cpp(295): warning C4101: 'delta' :참조되지 않은 지역 변수입니다.
+     1>code\irie.cpp(283): warning C4101: 'seedFileName' :참조되지 않은 지역 변수입니다.
+     1>code\irie.cpp(291): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+     1>code\irie.cpp(376): warning C4101: 'delta' :참조되지 않은 지역 변수입니다.
+     1>code\irie.cpp(363): warning C4101: 'seedFileName' :참조되지 않은 지역 변수입니다.
+         main.cpp
+     1>code\main.cpp(117): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>code\main.cpp(178): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>code\main.cpp(200): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>code\main.cpp(229): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>code\main.cpp(237): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>code\main.cpp(255): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>code\main.cpp(309): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>code\main.cpp(77): warning C4101: 'controlFileName' :참조되지 않은 지역 변수입니다.
+     1>code\main.cpp(302): warning C4101: 'spread' :참조되지 않은 지역 변수입니다.
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\ftp_access\enter\Wooram_InfluenceMaximization\max_influence_IRIE-5_t-1\Release\max_influence.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\max_influence.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\ftp_access\enter\Wooram_InfluenceMaximization\max_influence_IRIE-5_t-1\Release\max_influence.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\ftp_access\enter\Wooram_InfluenceMaximization\max_influence_IRIE-5_t-1\Release\max_influence.lib" /MACHINE:X86 Release\degree.obj
+         Release\degreediscount_ic.obj
+         Release\general_cascade.obj
+         Release\graph.obj
+         Release\greedy.obj
+         Release\heap.obj
+         Release\independ_cascade.obj
+         Release\ir.obj
+         Release\irie.obj
+         Release\main.obj
+         Release\mia.obj
+         Release\pagerank.obj
+         Release\pmia.obj
+         Release\random.obj
+         Release\SP1M_gc.obj
+         Release\SPM_gc.obj
+         Release\weightedegree.obj
+         코드를 생성하고 있습니다.
+         코드를 생성했습니다.
+         max_influence.vcxproj -> E:\ftp_access\enter\Wooram_InfluenceMaximization\max_influence_IRIE-5_t-1\Release\max_influence.exe
+       Manifest:
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\ftp_access\enter\Wooram_InfluenceMaximization\max_influence_IRIE-5_t-1\Release\max_influence.exe;#1" /manifest Release\max_influence.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         "Release\max_influence.unsuccessfulbuild" 파일을 삭제하고 있습니다.
+         "Release\max_influence.lastbuildstate"에 연결(touching)하고 있습니다.
+     1>"E:\ftp_access\enter\Wooram_InfluenceMaximization\max_influence_IRIE-5_t-1\max_influence\max_influence.vcxproj" 프로젝트를 빌드했습니다(build 대상).
+
+빌드했습니다.
+
+경과 시간: 00:00:03.35
