@@ -1,0 +1,39 @@
+./mia.cpp:double MIA::Build(int num, int k0, int bound, double (*Run)(int num_iter, int size, int set[]), double (*RunFast)(int num_iter, int size, int set[]))
+./mia.cpp:		double improve = RunFast(NUM_ITER, i+1, set);
+./mia.cpp:			double improve = i>top? Run(NUM_ITER/100, i+1, set) - old : RunFast(NUM_ITER/100, i+1, set) - old;
+./SP1M_gc.cpp:double SP1M_gc::Run(int num_iter, int size, int set[])
+./pagerank.cpp:	//		improve[heap[0]] = Run(NUM_ITER, i+1, set) - old;
+./pagerank.cpp:	//	//double improve = RunFast(NUM_ITER, i+1, set);
+./pagerank.cpp:			//double improve = i>top? Run(NUM_ITER/100, i+1, set) - old : RunFast(NUM_ITER/100, i+1, set) - old;
+./pagerank.cpp://double SPT_new::Build(int num, int k0, int bound, double (*Run)(int num_iter, int size, int set[]), double (*RunFast)(int num_iter, int size, int set[]))
+./pagerank.cpp://	//		improve[heap[0]] = Run(NUM_ITER, i+1, set) - old;
+./pagerank.cpp://		double improve = RunFast(NUM_ITER, i+1, set);
+./pagerank.cpp://			double improve = i>top? Run(NUM_ITER/100, i+1, set) - old : RunFast(NUM_ITER/100, i+1, set) - old;
+./pmia.cpp:double SPT_new::Build(int num, int k0, int bound, double (*Run)(int num_iter, int size, int set[]), double (*RunFast)(int num_iter, int size, int set[]))
+./pmia.cpp:		double improve = RunFast(NUM_ITER, i+1, set);
+./pmia.cpp:			double improve = i>top? Run(NUM_ITER/100, i+1, set) - old : RunFast(NUM_ITER/100, i+1, set) - old;
+./staticgreedy.cpp:			//improve[heap[0]] = Run(R, i+1, set) - old;
+./independ_cascade.cpp:double IndependCascade::Run(int num_iter, int size, int set[])
+./main.cpp:void toSimulate(char *file, int (*GetNode)(int i), double (*Run)(int num_iter, int size, int set[]), double time, int R)
+./main.cpp:	    double temp = Run(20000, t+1, set);
+./main.cpp:void toSimulateForStaticGreedy(char *file, int R, long time, int *seeds, double (*Run)(int num_iter, int size, int set[]))
+./main.cpp:		value[t] = Run(20000, t+1, set);
+./main.cpp:double toSimulateOnce(int setsize, int (*GetNode)(int i), double (*Run)(int num_iter, int size, int set[]))
+./main.cpp:	return Run(NUM_ITER, t, set);
+./main.cpp:		Greedy::Build(SET_SIZE, R, GeneralCascade::Run);
+./main.cpp:		toSimulate(outfile, Greedy::GetNode, GeneralCascade::Run, timer, NUM_ITER);
+./main.cpp:    	Greedy::Build(SET_SIZE,SP1M_gc::Run);
+./main.cpp:    	toSimulate(outfile, Greedy::GetNode, GeneralCascade::Run, (double)(end_time-start_time), NUM_ITER);
+./main.cpp:		toSimulateForStaticGreedy(outfile, R, time, seeds, GeneralCascade::Run);
+./main.cpp:		toSimulateForStaticGreedy(outfile, R, time, seeds, GeneralCascade::Run);
+./main.cpp:		toSimulateForStaticGreedy(outfile, R, time, seeds, GeneralCascade::Run);
+./main.cpp:				spread=toSimulateOnce(SET_SIZE, SPT_new::GetNode, GeneralCascade::Run);
+./main.cpp:				toSimulate(SPT_new_WC, SPT_new::GetNode, GeneralCascade::Run, timer, -1);
+./main.cpp:				spread=toSimulateOnce(SET_SIZE, MIA::GetNode, GeneralCascade::Run);
+./main.cpp:				toSimulate(SPT_new_WC, MIA::GetNode, GeneralCascade::Run, timer, -1);
+./SPM_gc.cpp:double SPM_gc::Run(int num_iter, int size, int set[])
+./general_cascade.cpp:double GeneralCascade::Run(int num_iter, int size, int set[])
+./greedy.cpp:void Greedy::Build(int num, int R, double (*Run)(int num_iter, int size, int set[]))
+./greedy.cpp:			improve[heap[0]] = Run(R, i+1, set) - old;
+./greedy.cpp:void Greedy::Build(int num, double (*Run)(int num_iter, int size, int set[]))
+./greedy.cpp:			improve[heap[0]] = Run(NUM_ITER, i+1, set) - old;

@@ -1,0 +1,22 @@
+probGraphFile : ./hep_LT2.inf
+
+debug : 0
+mcruns : 10000
+
+outdir : output/test/
+
+startIt : 2
+propModel : LT
+cutoff : 0.001
+topl : 4
+budget : 50
+celfPlus : 1
+tol_ldag : 0.003125
+
+
+#phase
+# 10 : MC
+# 15 : LDAG
+# 17 : Simple Path 
+# 20 : Baseline (Rand, HighDeg, PageRank, etc...)
+phase : 10

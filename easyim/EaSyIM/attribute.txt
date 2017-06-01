@@ -1,0 +1,50 @@
+[path] Iteration Number: 10
+[path] The spread is: 2
+[path] The time taken for seed selection: 0.000112
+[path] The seed size is:10
+
+[path] Iteration Number: 9
+[path] The spread is: 2
+[path] The time taken for seed selection: 6.9e-05
+[path] The seed size is:10
+
+[path] Iteration Number: 8
+[path] The spread is: 2
+[path] The time taken for seed selection: 6.7e-05
+[path] The seed size is:10
+
+[path] Iteration Number: 7
+[path] The spread is: 2
+[path] The time taken for seed selection: 6.7e-05
+[path] The seed size is:10
+
+[path] Iteration Number: 6
+[path] The spread is: 2
+[path] The time taken for seed selection: 6.6e-05
+[path] The seed size is:10
+
+[path] Iteration Number: 5
+[path] The spread is: 2
+[path] The time taken for seed selection: 6.5e-05
+[path] The seed size is:10
+
+[path] Iteration Number: 4
+[path] The spread is: 2
+[path] The time taken for seed selection: 6.6e-05
+[path] The seed size is:10
+
+[path] Iteration Number: 3
+[path] The spread is: 2
+[path] The time taken for seed selection: 6.6e-05
+[path] The seed size is:10
+
+[path] Iteration Number: 2
+[path] The spread is: 2
+[path] The time taken for seed selection: 6.6e-05
+[path] The seed size is:10
+
+[path] Iteration Number: 1
+[path] The spread is: 2
+[path] The time taken for seed selection: 6.6e-05
+[path] The seed size is:10
+

@@ -1,10 +1,10 @@
 all: imm_continuous imm_discrete
 
 imm_continuous: src/*.cpp src/*.h
-	g++ -DCONTINUOUS src/imm.cpp -Wall -std=c++0x -O3 src/sfmt/SFMT.c  -o imm_continuous
+	g++ -DCONTINUOUS src/imm.cpp -Wall -std=c++0x -O3 src/sfmt/SFMT.c  -o imm_continuous  
 
 imm_discrete: src/*.cpp src/*.h
-	g++ -DDISCRETE src/imm.cpp -Wall -std=c++0x -O3 src/sfmt/SFMT.c  -o imm_discrete
+	g++ -DDISCRETE src/imm.cpp -Wall -std=c++0x -O3 src/sfmt/SFMT.c  -o imm_discrete  #-DDISCRETE is the compiling flag 
 
 imm: src/*.cpp src/*.h
 	g++ src/imm.cpp -Wall -std=c++0x -O3 src/sfmt/SFMT.c  -o imm

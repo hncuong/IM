@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="code\degree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\degreediscount_ic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\general_cascade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\graph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\greedy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\independ_cascade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\mia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\pagerank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\pmia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\random.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\SP1M_gc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\SPM_gc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\weightedegree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\ir.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\irie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\heap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code\pmia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\SP1M_gc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\SPM_gc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\weighteddegree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\degree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\degreediscount_ic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\general_cascade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\graph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\greedy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\independ_cascade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\limit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\mia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\pagerank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\ir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\irie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\heap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,40 @@
+./mia.cpp:double MIA::Build(int num, int k0, int bound, double (*Run)(int num_iter, int size, int set[]), double (*RunFast)(int num_iter, int size, int set[]))
+./mia.cpp:		double improve = RunFast(NUM_ITER, i+1, set);
+./mia.cpp:			double improve = i>top? Run(NUM_ITER/100, i+1, set) - old : RunFast(NUM_ITER/100, i+1, set) - old;
+./SP1M_gc.cpp:double SP1M_gc::Run(int num_iter, int size, int set[])
+./pagerank.cpp:	//		improve[heap[0]] = Run(NUM_ITER, i+1, set) - old;
+./pagerank.cpp:	//	//double improve = RunFast(NUM_ITER, i+1, set);
+./pagerank.cpp:			//double improve = i>top? Run(NUM_ITER/100, i+1, set) - old : RunFast(NUM_ITER/100, i+1, set) - old;
+./pagerank.cpp://double SPT_new::Build(int num, int k0, int bound, double (*Run)(int num_iter, int size, int set[]), double (*RunFast)(int num_iter, int size, int set[]))
+./pagerank.cpp://	//		improve[heap[0]] = Run(NUM_ITER, i+1, set) - old;
+./pagerank.cpp://		double improve = RunFast(NUM_ITER, i+1, set);
+./pagerank.cpp://			double improve = i>top? Run(NUM_ITER/100, i+1, set) - old : RunFast(NUM_ITER/100, i+1, set) - old;
+./pmia.cpp:double SPT_new::Build(int num, int k0, int bound, double (*Run)(int num_iter, int size, int set[]), double (*RunFast)(int num_iter, int size, int set[]))
+./pmia.cpp:		double improve = RunFast(NUM_ITER, i+1, set);
+./pmia.cpp:			double improve = i>top? Run(NUM_ITER/100, i+1, set) - old : RunFast(NUM_ITER/100, i+1, set) - old;
+./independ_cascade.cpp:double IndependCascade::Run(int num_iter, int size, int set[])
+./main.cpp:void toSimulate(char *file, int (*GetNode)(int i), double (*Run)(int num_iter, int size, int set[]))
+./main.cpp:		out << t + 1 << '\t' <<  Run(NUM_ITER, t+1, set) << endl;
+./main.cpp:double toSimulateOnce(int setsize, int (*GetNode)(int i), double (*Run)(int num_iter, int size, int set[]))
+./main.cpp:	return Run(NUM_ITER, t, set);
+./main.cpp:		//toSimulate(simulationFileName, Degree::GetNode, GeneralCascade::Run);
+./main.cpp:		toSimulate("GC_Random.txt", Random::GetNode, GeneralCascade::Run);
+./main.cpp:		toSimulate("GC_WeightedDegree.txt", WeightedDegree::GetNode, GeneralCascade::Run);
+./main.cpp:		toSimulate("GC_Degree.txt", Degree::GetNode, GeneralCascade::Run);
+./main.cpp:		toSimulate("GC_DiscountIC.txt", DegreeDiscount_IC::GetNode, GeneralCascade::Run);
+./main.cpp:		//toSimulate(simulationFileName, pagerank::GetNode, GeneralCascade::Run);
+./main.cpp:			//toSimulate(simulationFileName, IR::GetNode, GeneralCascade::Run);
+./main.cpp:		toSimulate(simulationFileName, IRIE::GetNode, GeneralCascade::Run);
+./main.cpp:		Greedy::Build(SET_SIZE,GeneralCascade::Run, argv[argc - 1]);
+./main.cpp:		//toSimulate(simulationFileName, Greedy::GetNode, GeneralCascade::Run);
+./main.cpp:		Greedy::Build(SET_SIZE,SPM_gc::Run);
+./main.cpp:		toSimulate("GC_SPM.txt", Greedy::GetNode, GeneralCascade::Run);
+./main.cpp:		Greedy::Build(SET_SIZE,SP1M_gc::Run);
+./main.cpp:		toSimulate("GC_SP1M.txt", Greedy::GetNode, GeneralCascade::Run);
+./main.cpp:			//toSimulate(simulationFileName, SPT_new::GetNode, GeneralCascade::Run);
+./main.cpp:				spread=toSimulateOnce(SET_SIZE, MIA::GetNode, GeneralCascade::Run);
+./main.cpp:				toSimulate(SPT_new_WC, MIA::GetNode, GeneralCascade::Run);
+./SPM_gc.cpp:double SPM_gc::Run(int num_iter, int size, int set[])
+./general_cascade.cpp:double GeneralCascade::Run(int num_iter, int size, int set[])
+./greedy.cpp:void Greedy::Build(int num, double (*Run)(int num_iter, int size, int set[]), char data[])
+./greedy.cpp:			improve[heap[0]] = Run(NUM_ITER, i+1, set) - old;
