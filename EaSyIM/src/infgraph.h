@@ -11,18 +11,9 @@ public:
     vector<double > new_score;
     vector<vector<int>> hyperG;
 
-    enum InfluModel {IC, LT, WC};
-    InfluModel influModel;
-    void setInfuModel(const InfluModel& p)
-    {
-        influModel = p;
-        TRACE(influModel == IC);
-        TRACE(influModel == LT);
-        TRACE(influModel == WC);
-    }
-
     InfGraph(const string& folder, const string& graph_file,
-             const InfluModel& influModel): Graph(folder, graph_file){
+             const InfluModel& influModel): Graph(folder, graph_file)
+    {
         srand(time(NULL));
         sfmt_init_gen_rand(&sfmtSeed , rand());
         setInfuModel(influModel);
