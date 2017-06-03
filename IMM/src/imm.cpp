@@ -10,6 +10,7 @@ public:
     double epsilon;
     string model;
     double T;
+    string seedfile;
     int time;
 };
 
@@ -18,7 +19,16 @@ public:
 #include "imm.h"
 
 //static unsigned int rr_num=0;
-
+void OutputSeedSetToFile(set<int> seed_set, string seedfile)
+{
+    ofstream of;
+    of.open(seedfile);
+    for (int seed: seed_set)
+    {
+        of << seed << " ";
+    }
+    of.close();
+}
 
 void run_with_parameter(InfGraph &g, const Argument & arg)
 {
@@ -27,21 +37,22 @@ void run_with_parameter(InfGraph &g, const Argument & arg)
 
 
         
-        cout<<"Before IMM class"<<endl;
-        disp_mem_usage();
-        cout<<endl;
+        // cout<<"Before IMM class"<<endl;
+        // disp_mem_usage();
+        // cout<<endl;
           
         Imm::InfluenceMaximize(g, arg);
 
         
-        cout<<"After IMM class" <<endl;
-        disp_mem_usage();
-        cout<<endl;
+        // cout<<"After IMM class" <<endl;
+        // disp_mem_usage();
+        // cout<<endl;
         
 
-        INFO(g.seedSet);
+        // INFO(g.seedSet);
+        OutputSeedSetToFile(g.seedSet, arg.seedfile);
         //INFO(g.InfluenceHyperGraph());
-    Timer::show(arg.time);
+        Timer::show(arg.time);
 }
 void Run(int argn, char **argv)
 {
@@ -52,7 +63,7 @@ void Run(int argn, char **argv)
     {
         if (argv[i] == string("-help") || argv[i] == string("--help") || argn == 1)
         {
-            cout << "./tim -dataset *** -epsilon *** -k ***  -model IC|LT|WC|TR|CONT " << endl;
+            cout << "./imm -dataset *** -epsilon *** -k ***  -model IC|LT|WC|TR|CONT -seedfile *** -time *** " << endl;
             return ;
         }
         if (argv[i] == string("-dataset")) 
@@ -65,6 +76,8 @@ void Run(int argn, char **argv)
             arg.k = atoi(argv[i + 1]);
         if (argv[i] == string("-model"))            
             arg.model = argv[i + 1];
+        if (argv[i] == string("-seedfile"))
+            arg.seedfile = argv[i + 1];
         if (argv[i] == string("-time"))
             arg.time = atoi(argv[i+1]);
     }
@@ -86,16 +99,16 @@ void Run(int argn, char **argv)
         ASSERT(false);
   
     
-    cout<<"Before load the graph"<<endl;
-    disp_mem_usage();
-    cout<<endl;
+    // cout<<"Before load the graph"<<endl;
+    // disp_mem_usage();
+    // cout<<endl;
     
     InfGraph g(arg.dataset, graph_file);
 
     
-    cout<<"After load the graph"<<endl;
-    disp_mem_usage();
-    cout<<endl;    
+    // cout<<"After load the graph"<<endl;
+    // disp_mem_usage();
+    // cout<<endl;    
     
 
     if (arg.model == "IC")
@@ -121,7 +134,7 @@ int main(int argn, char **argv)
     OutputInfo info(argn, argv);
     
     Run( argn, argv );
-    disp_mem_usage();
+    // disp_mem_usage();
     cout<<"Memory: "<<getProcMemory()<<" MB"<<endl;
 }
 

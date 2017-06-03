@@ -31,9 +31,10 @@
 *.out
 *.app
 
-# idea
+# ide
 cmake-build-debug
 .idea
+.vscode
 
 # Exec files
 EaSyIM/easyim
@@ -43,3 +44,6 @@ TIM/tim
 
 # seed file
 seeds.txt
+
+# dataset 
+dataset/orkut/

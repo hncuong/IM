@@ -37,9 +37,10 @@ void run_with_parameter(InfGraph &g, const Argument & arg)
     // cout<<endl;
 
 
-    INFO(g.seedSet);
+    // INFO(g.seedSet);
     OutputSeedSetToFile(g.seedSet, arg.seedfile);
-    INFO(g.visit_mark);
+    
+    // INFO(g.visit_mark);
     // Timer::show(arg.time);
 }
 void Run(int argn, char **argv)

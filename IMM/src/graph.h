@@ -141,10 +141,10 @@ public:
         for (int i = 0; i < n; i++)
             if (hasnode[i])
                 s++;
-        INFO(s);
-        cout<<"Read Graph Memory: "<<getProcMemory()<<" MB"<<endl;
-        disp_mem_usage();
-        cout<<endl;
+        // INFO(s);
+        // cout<<"Read Graph Memory: "<<getProcMemory()<<" MB"<<endl;
+        // disp_mem_usage();
+        // cout<<endl;
 
         ASSERT(readCnt == m);
 		rc = munmap(ptr, length);

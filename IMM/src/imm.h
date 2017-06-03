@@ -33,7 +33,7 @@ class Imm
         static double step1(InfGraph &g, const Argument & arg)
         {
             double epsilon_prime = arg.epsilon * sqrt(2);            
-            Timer t(1, "step1");
+            // Timer t(1, "step1");
             for (int x = 1; ; x++)
             {
                 
@@ -57,7 +57,7 @@ class Imm
 
         static double step2(InfGraph &g, const Argument & arg, double OPT_prime)
         {
-            Timer t(2, "step2");
+            // Timer t(2, "step2");
             ASSERT(OPT_prime > 0);
             double e = exp(1);
             double alpha = sqrt(log(g.n) + log(2));
@@ -81,7 +81,7 @@ class Imm
 
         static void InfluenceMaximize(InfGraph &g, const Argument &arg)
         {
-            Timer t(100, "InfluenceMaximize(Total Time)");            
+            Timer t(1, "InfluenceMaximize(Total Time)");            
 
    
             for (int i=0;i<arg.time;i++)
@@ -93,7 +93,7 @@ class Imm
                 step2(g, arg, OPT_prime);
             }
             disp_mem_usage();
-            cout<<"TotalSample "<<rr_num/arg.time<<endl;
+            // cout<<"TotalSample "<<rr_num/arg.time<<endl;
 
         }
 
