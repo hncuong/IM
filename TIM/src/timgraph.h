@@ -1,3 +1,26 @@
+#include <chrono>
+#include <ctime>
+#include <ratio>
+
+using namespace std::chrono;
+
+void displayTimeUSed(high_resolution_clock::time_point& startTime)
+{
+    high_resolution_clock::time_point endTime = high_resolution_clock::now();
+    duration<double> interval = duration_cast<duration<double>>(endTime-startTime);
+    double timeUsed = (double)interval.count();
+
+    char str[100];
+    //sprintf(str,"%.6lf",timeUsed[i]/TIMES_PER_SEC );
+    sprintf(str,"%.6lf", timeUsed);
+    string s=str;
+    if ((int)s.size()<15) s=" "+s;
+    char t[100];
+    memset(t, 0, sizeof t);
+    sprintf(t,"Spend %s seconds on InfluenceMaximize(Total Time)",s.c_str());
+    cout<< t << endl;
+}
+
 class TimGraph: public InfGraph
 {
     public:
@@ -32,18 +55,18 @@ class TimGraph: public InfGraph
                 if(c>lb) break;
                 lb /= 2;
             }
-            cout<<"temp="<<temp<<endl;
+            // cout<<"temp="<<temp<<endl;
             return c * n;
         }
         double KptEstimation()
         {
-            Timer t(1, "step1");
+            // Timer t(1, "step1");
             double ept=algo2();
             ept/=2;
             return ept;
         }
         void RefindKPT(double epsilon, double ept){
-            Timer t(2, "step2" );
+            // Timer t(2, "step2" );
             ASSERT(ept > 0);
             int64 R = (2 + epsilon) * ( n * log(n) ) / ( epsilon * epsilon * ept);
             BuildHypergraphR(R);
@@ -59,40 +82,34 @@ class TimGraph: public InfGraph
             return ans;
         }
         void NodeSelection(double epsilon, double opt){
-            Timer t(3, "step3");
+            // Timer t(3, "step3");
             ASSERT(opt > 0);
             int64 R = (8+2 * epsilon) * ( log(n) + log(2) +  n * logcnk(n, k) ) / ( epsilon * epsilon * opt);
-            cout<<"R="<<R<<endl;
+            // cout<<"R="<<R<<endl;
             BuildHypergraphR(R);
             BuildSeedSet();
         }
         double EstimateOPT(double epsilon){
-            Timer t(100,"EstimateOPT");
+            high_resolution_clock::time_point startTime = high_resolution_clock::now();
 
-            //int64 R=1000000;
-            //double tau=BuildHypergraphR(R);
-            //return tau;
-            //BuildSeedSet();
-            //cout<<"tau="<<tau<<endl;
-            // KPT estimation
             double kpt_star;
             kpt_star=KptEstimation();
-            cout<<"kpt_star="<<kpt_star<<endl;
-            //return kpt_star;
+
             // Refine KPT
             double eps_prime;
             eps_prime=5*pow(sqr(epsilon)/(k+1), 1.0/3.0);
             RefindKPT(eps_prime, kpt_star);
+
             BuildSeedSet();
+            
+            displayTimeUSed(startTime);
+
             double kpt=InfluenceHyperGraph();
             kpt/=1+eps_prime;
             double kpt_plus = max(kpt, kpt_star);
-            cout<<"kpt_plus="<<kpt_plus<<endl;
             disp_mem_usage("");
             return kpt_plus;
-            //Node Selection
-            //NodeSelection(epsilon, kpt_plus);
-            //disp_mem_usage("");
+
         }
 
 };

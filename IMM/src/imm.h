@@ -2,10 +2,6 @@
 #include <ctime>
 #include <ratio>
 
-#include <chrono>
-#include <ctime>
-#include <ratio>
-
 using namespace std::chrono;
 
 void displayTimeUSed(high_resolution_clock::time_point& startTime,const int& time)

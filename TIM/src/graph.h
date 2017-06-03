@@ -114,10 +114,10 @@ class Graph
             for (int i = 0; i < n; i++)
                 if (hasnode[i])
                     s++;
-            INFO(s);
+            // INFO(s);
 //            cout<<"Read Graph Memory: "<<getProcMemory()<<" MB"<<endl;
 //            disp_mem_usage();
-            cout<<endl;
+            // cout<<endl;
 
             ASSERT(readCnt == m);
             rc = munmap(ptr, length);

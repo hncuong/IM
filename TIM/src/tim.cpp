@@ -7,9 +7,20 @@
 #include "head.h"
 #include "memoryusage.h"
 #include "graph.h"
+#include "MeasureM.h"
 
-void run(TimGraph & m, string dataset, int k, double epsilon, string model ){
-    cout << "dataste:" << dataset << " k:" << k << " epsilon:"<< epsilon <<   " model:" << model << endl;
+void OutputSeedSetToFile(set<int> seed_set, string seedfile)
+{
+    ofstream of;
+    of.open(seedfile);
+    for (int seed: seed_set)
+    {
+        of << seed << " ";
+    }
+    of.close();
+}
+
+void run(TimGraph & m, string dataset, int k, double epsilon, string model , string seedfile){
     m.k=k;
     if(model=="IC")
         m.setInfuModel(InfGraph::IC);
@@ -18,20 +29,15 @@ void run(TimGraph & m, string dataset, int k, double epsilon, string model ){
     else
         ASSERT(false);
 
-    cout<<"Finish Read Graph, Start Influecne Maximization"<<endl;
-    double tau=m.EstimateOPT(epsilon);
-    cout<<"Time used: " << Timer::timeUsed[100]/TIMES_PER_SEC << "s" <<endl;
-    cout<<"tau="<<tau<<endl;
-    cout<<"Selected k SeedSet: ";
-    for(auto item:m.seedSet)
-        cout<< item << " ";
-    cout<<endl;
-    cout<<"Estimated Influence: " << m.InfluenceHyperGraph() << endl;
-    Counter::show();
+    m.EstimateOPT(epsilon);
+
+    OutputSeedSetToFile(m.seedSet, seedfile);
+
 }
 void parseArg(int argn, char ** argv)
 {
     string dataset="";
+    string seedfile="";
 
     double epsilon=0;
     string model="";
@@ -54,6 +60,7 @@ void parseArg(int argn, char ** argv)
             else
                 ExitMessage("model should be IC or LT");
         }
+        if(argv[i]==string("-seedfile")) seedfile=string(argv[i+1]);
     }
     if (dataset=="")
         ExitMessage("argument dataset missing");
@@ -72,10 +79,7 @@ void parseArg(int argn, char ** argv)
         graph_file=dataset + "graph_lt.inf";
 
     TimGraph m(dataset, graph_file);
-    run(m, dataset, k ,  epsilon, model );
-    cout<<"second time"<<endl;
-    disp_mem_usage("");
-    cout<<endl;
+    run(m, dataset, k ,  epsilon, model, seedfile );
 }
 
 
@@ -84,8 +88,9 @@ void parseArg(int argn, char ** argv)
 
 int main(int argn, char ** argv)
 {
-    OutputInfo info(argn, argv);
+    // OutputInfo info(argn, argv);
     parseArg( argn, argv );
+    cout<<"Memory: "<<getProcMemory()<<" MB"<<endl;
 }
 
 
