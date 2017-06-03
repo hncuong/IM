@@ -7,6 +7,22 @@
 
 using namespace std::chrono;
 
+void displayTimeUSed(high_resolution_clock::time_point& startTime,const int& time)
+{
+    high_resolution_clock::time_point endTime = high_resolution_clock::now();
+    duration<double> interval = duration_cast<duration<double>>(endTime-startTime);
+    double timeUsed = (double)interval.count()/time;
+
+    char str[100];
+    //sprintf(str,"%.6lf",timeUsed[i]/TIMES_PER_SEC );
+    sprintf(str,"%.6lf", timeUsed);
+    string s=str;
+    if ((int)s.size()<15) s=" "+s;
+    char t[100];
+    memset(t, 0, sizeof t);
+    sprintf(t,"Spend %s seconds on InfluenceMaximize(Total Time)",s.c_str());
+    cout<< t << endl;
+}
 
 class EasyIM
 {
@@ -22,19 +38,7 @@ public:
         }
         disp_mem_usage();
 
-        high_resolution_clock::time_point endTime = high_resolution_clock::now();
-        duration<double> interval = duration_cast<duration<double>>(endTime-startTime);
-        double timeUsed = (double)interval.count();
-        
-        char str[100];
-        //sprintf(str,"%.6lf",timeUsed[i]/TIMES_PER_SEC );
-        sprintf(str,"%.6lf", timeUsed/arg.time);
-        string s=str;
-        if ((int)s.size()<15) s=" "+s;
-        char t[100];
-        memset(t, 0, sizeof t);
-        sprintf(t,"Spend %s seconds on InfluenceMaximize(Total Time)",s.c_str());
-        cout<< t << endl;  
+        displayTimeUSed(startTime, arg.time);
         
     }
 };
