@@ -12,6 +12,7 @@ public:
     string dataset;
     int l;
     string model;
+    string seedfile;
     int time;
 };
 
@@ -24,21 +25,22 @@ public:
 void run_with_parameter(InfGraph &g, const Argument & arg)
 {
 
-    cout<<"Before EasyIM class"<<endl;
-    disp_mem_usage();
-    cout<<endl;
+    // cout<<"Before EasyIM class"<<endl;
+    // disp_mem_usage();
+    // cout<<endl;
 
     EasyIM::InfluenceMaximize(g, arg);
 
 
-    cout<<"After EasyIM class" <<endl;
-    disp_mem_usage();
-    cout<<endl;
+    // cout<<"After EasyIM class" <<endl;
+    // disp_mem_usage();
+    // cout<<endl;
 
 
     INFO(g.seedSet);
+    OutputSeedSetToFile(g.seedSet, arg.seedfile);
     INFO(g.visit_mark);
-    Timer::show(arg.time);
+    // Timer::show(arg.time);
 }
 void Run(int argn, char **argv)
 {
@@ -49,7 +51,7 @@ void Run(int argn, char **argv)
     {
         if (argv[i] == string("-help") || argv[i] == string("--help") || argn == 1)
         {
-            cout << "./easyim -dataset *** -l *** -k ***  -model IC|LT|WC -time ***" << endl;
+            cout << "./easyim -dataset *** -l *** -k ***  -model IC|LT|WC -seedfile *** -time ***" << endl;
             return ;
         }
         if (argv[i] == string("-dataset"))
@@ -60,6 +62,8 @@ void Run(int argn, char **argv)
             arg.k = atoi(argv[i + 1]);
         if (argv[i] == string("-model"))
             arg.model = argv[i + 1];
+        if (argv[i] == string("-seedfile"))
+            arg.seedfile = argv[i + 1];
         if (argv[i] == string("-time"))
             arg.time = atoi(argv[i+1]);
     }
@@ -87,16 +91,16 @@ void Run(int argn, char **argv)
     else
     ASSERT(false);
 
-    cout<<"Before load the graph"<<endl;
-    disp_mem_usage();
-    cout<<endl;
+    // cout<<"Before load the graph"<<endl;
+    // disp_mem_usage();
+    // cout<<endl;
 
     InfGraph g(arg.dataset, graph_file, influModel);
 
 
-    cout<<"After load the graph"<<endl;
-    disp_mem_usage();
-    cout<<endl;
+    // cout<<"After load the graph"<<endl;
+    // disp_mem_usage();
+    // cout<<endl;
 
     run_with_parameter(g, arg);
 }
@@ -108,7 +112,7 @@ int main(int argn, char **argv)
     OutputInfo info(argn, argv);
 
     Run( argn, argv );
-    disp_mem_usage();
+    // disp_mem_usage();
     cout<<"Memory: "<<getProcMemory()<<" MB"<<endl;
 }
 

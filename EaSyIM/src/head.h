@@ -377,4 +377,16 @@ class OutputInfo
         //cout<<"\e\[0;31mProgram version: " << __head_version << "\e[0m"<<endl;
     }
 };
+
+void OutputSeedSetToFile(set<int> seed_set, string seedfile)
+{
+    ofstream of;
+    of.open(seedfile);
+    for (int seed: seed_set)
+    {
+        of << seed << " ";
+    }
+    of.close();
+}
+
 #endif //__HEAD_H__
