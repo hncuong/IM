@@ -30,8 +30,10 @@ class imrank
 private:
 	static int n;
 	static int top;
-	static double d[MAX_K];
-	static int list[MAX_K];
+//	static double d[MAX_K];
+//	static int list[MAX_K];
+//	static vector<double> d;
+	static vector<int> list;
 	static char file[STR_LEN];
 	static vector<double> dp;
 	static vector<int> dd;
@@ -47,7 +49,7 @@ public:
 	static long timer;
 	static void constructEdges();
 	//static double Build(bool secondLeaders);
-	static double Build(char *initialRank, int l);
+	static double Build(char *initialRank, int& l, int&k);
 	static int GetNode(int i);
 	static int GetMax(int round);
 	static int Compare(const void * id1, const void * id2);

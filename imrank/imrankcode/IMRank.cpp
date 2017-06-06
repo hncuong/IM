@@ -11,8 +11,9 @@
 
 int imrank::n = 0;
 int imrank::top = 0;
-double imrank::d[MAX_K];
-int imrank::list[MAX_K];
+//double imrank::d[MAX_K];
+//int imrank::list[MAX_K];
+vector<int> imrank::list(MAX_K,0);
 char imrank::file[] = "imrank.txt";
 RankNode* imrank::rankNodes;
 bool imrank::debug = false;
@@ -139,7 +140,7 @@ int imrank::GetLeaders(int node)
 }
 
 
-double imrank::Build(char *initialRank, int l)
+double imrank::Build(char *initialRank, int& l, int& k)
 {
 	constructEdges();
 	clock_t start_time, end_time;
@@ -148,6 +149,8 @@ double imrank::Build(char *initialRank, int l)
 	n = Graph::GetN();	
 	dp.resize(n);
 	dd.resize(n);
+	list.resize(k);
+//	list = vector<int>(k);
 
 	rankNodes = (RankNode*)malloc(sizeof(RankNode)*n);
 
@@ -164,7 +167,7 @@ double imrank::Build(char *initialRank, int l)
 		rankNodes[i].rank = -1000;
 	}
 
-	int set[SET_SIZE];
+	// int set[k];
 	InitialRank(initialRank, rankNodes);
 
 	int round = 1;
@@ -173,7 +176,7 @@ double imrank::Build(char *initialRank, int l)
 
 		bool diff_rank_top_k = true;
 		 
-		for(int o=n-SET_SIZE; o<n; o++){
+		for(int o=n-k; o<n; o++){
 			if((n-o)!=oldRank[rankIDs[o]])
 			{
 				diff_rank_top_k = false;
@@ -182,7 +185,7 @@ double imrank::Build(char *initialRank, int l)
 		}
 
 		double rank_modify_count = 0.0;
-		for(int o=n-SET_SIZE; o<n; o++){
+		for(int o=n-k; o<n; o++){
 			if((n-o)!=oldRank[rankIDs[o]])
 			{
 				rank_modify_count++;
@@ -190,19 +193,20 @@ double imrank::Build(char *initialRank, int l)
 		}
 
 		bool diff_top_k = true;
-		for(int o=n-SET_SIZE; o<n; o++){
-			if(abs(oldRank[rankIDs[o]]) > SET_SIZE){
+		for(int o=n-k; o<n; o++){
+			if(abs(oldRank[rankIDs[o]]) > k){
 				diff_top_k = false;
 				break;
 			}
 		}
 
-		if(diff_top_k || round == IMRank_LOOP){
+//		if(diff_top_k || round == IMRank_LOOP){
+		if(round == IMRank_LOOP){
 		//if(diff_top_k){
 		//if(round > 20){
 			end_time = clock();
 			timer = end_time - start_time;
-				for(int j=1; j<SET_SIZE+1; j++)
+				for(int j=1; j<k+1; j++)
 				{
 					list[j-1] = rankIDs[n-j];
 				}
