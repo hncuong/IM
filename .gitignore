@@ -42,8 +42,10 @@ IMM/imm_discrete
 MC/montecarlo
 TIM/tim
 
-# seed file
-seeds.txt
+# others file
+*.txt
+*.docx#
+*.doc#
 
 # dataset 
 dataset/orkut/

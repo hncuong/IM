@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include <queue>
+#include <stdlib.h>
 using namespace std;
 
 bool Graph::built = false;
@@ -77,13 +78,13 @@ void Graph::Build()
 		return;
 	built = true;
 
-	scanf("%ld %ld", &n, &m);	
+	scanf("%d %d", &n, &m);	
 	degree.resize(n);
 	edges.resize(2*m);
 
 	for (int i=0; i<m; i++)
 	{
-		scanf("%ld %ld", &edges[i].u, &edges[i].v);
+		scanf("%d %d", &edges[i].u, &edges[i].v);
 		edges[i+m].u = edges[i].v;
 		edges[i+m].v = edges[i].u;
 		edges[i].c	 = 1;
@@ -191,13 +192,13 @@ void Graph::Build2WC()
 		return;
 	built = true;
 
-	scanf("%ld %ld", &n, &m);	
+	scanf("%d %d", &n, &m);	
 	degree.resize(n);
 	edges.resize(2*m);
 
 	for (int i=0; i<2*m; i++)
 	{
-		scanf("%ld %ld %lg %lg", &edges[i].u, &edges[i].v, &edges[i].w1, &edges[i].w2);
+		scanf("%d %d %lg %lg", &edges[i].u, &edges[i].v, &edges[i].w1, &edges[i].w2);
 		edges[i].u--;
 		edges[i].v--;
 		edges[i].w1=-log(edges[i].w1);
@@ -242,7 +243,7 @@ void Graph::BuildFromFile2DWC(char *file){
 	built = true;
 
 	FILE* in = fopen(file, "r");
-	fscanf(in,"%ld %ld", &n, &m);	
+	fscanf(in,"%d %d", &n, &m);	
 
 	degree.resize(n);
 	indegree.resize(n);
@@ -253,7 +254,7 @@ void Graph::BuildFromFile2DWC(char *file){
 
 	for (int i=0; i<m; i++)
 	{
-		fscanf(in,"%ld %ld", &edges[i].u, &edges[i].v);
+		fscanf(in,"%d %d", &edges[i].u, &edges[i].v);
 		edges[i].w1=0;
 		edges[i].w2=20000;
 		edges[i+m].u = edges[i].v;
@@ -322,8 +323,7 @@ void Graph::BuildFromFile2WC(char *file){
 	built = true;
 
 	FILE* in = fopen(file, "r");
-	fscanf(in,"%ld %ld", &n, &m);	
-
+	fscanf(in,"%d %d", &n, &m);	
 	degree.resize(n);
 	indegree.resize(n);
 	outdegree.resize(n);
@@ -332,7 +332,7 @@ void Graph::BuildFromFile2WC(char *file){
 
 	for (int i=0; i<m; i++)
 	{
-		fscanf(in,"%ld %ld", &edges[i].u, &edges[i].v);
+		fscanf(in,"%d %d", &edges[i].u, &edges[i].v);
 		edges[i].w1=0;
 		edges[i].w2=0;
 		edges[i+m].u = edges[i].v;
@@ -400,7 +400,7 @@ void Graph::BuildFromFile2UC(char *file, double p){
 	built = true;
 
 	FILE* in = fopen(file, "r");
-	fscanf(in,"%ld %ld", &n, &m);	
+	fscanf(in,"%d %d", &n, &m);	
 
 	degree.resize(n);
 	indegree.resize(n);
@@ -410,7 +410,7 @@ void Graph::BuildFromFile2UC(char *file, double p){
 
 	for (int i=0; i<m; i++)
 	{
-		fscanf(in,"%ld %ld", &edges[i].u, &edges[i].v);   
+		fscanf(in,"%d %d", &edges[i].u, &edges[i].v);   
 		edges[i].w1=0;
 		edges[i].w2=0;
 		edges[i+m].u = edges[i].v;
@@ -480,7 +480,7 @@ void Graph::BuildFromFile2DUC(char *file, double p){
 	built = true;
 
 	FILE* in = fopen(file, "r");
-	fscanf(in,"%ld %ld", &n, &m);	
+	fscanf(in,"%d %d", &n, &m);	
 
 	degree.resize(n);
 	indegree.resize(n);
@@ -490,7 +490,7 @@ void Graph::BuildFromFile2DUC(char *file, double p){
 
 	for (int i=0; i<m; i++)
 	{
-		fscanf(in,"%ld %ld", &edges[i].u, &edges[i].v);
+		fscanf(in,"%d %d", &edges[i].u, &edges[i].v);
 		int temp = 0;
 	    temp = edges[i].u;
         edges[i].u = edges[i].v;
@@ -560,13 +560,13 @@ void Graph::Build2DWC()
 		return;
 	built = true;
 
-	scanf("%ld %ld", &n, &m);	
+	scanf("%d %d", &n, &m);	
 	degree.resize(n);
 	edges.resize(2*m);
 
 	for (int i=0; i<m; i++)
 	{
-		scanf("%ld %ld", &edges[i].u, &edges[i].v);
+		scanf("%d %d", &edges[i].u, &edges[i].v);
 		edges[i].w1=0;
 		edges[i].w2=20000;
 		edges[i+m].u = edges[i].v;
@@ -621,12 +621,12 @@ void Graph::Build2GC()
 	built = true;
 
 	
-	scanf("%ld %ld", &n, &m);	
+	scanf("%d %d", &n, &m);	
 	degree.resize(n);
 	edges.resize(m);
 	for (int i=0; i<m; i++)
 	{
-		scanf("%ld %ld %lg %lg", &edges[i].u, &edges[i].v, &edges[i].w1, &edges[i].w2);
+		scanf("%d %d %lg %lg", &edges[i].u, &edges[i].v, &edges[i].w1, &edges[i].w2);
 		edges[i].w1=-log(edges[i].w1);
 		edges[i].w2=-log(edges[i].w2);
 		edges[i].c	 = 1;
@@ -668,13 +668,13 @@ void Graph::Build2IC()
 		return;
 	built = true;
 
-	scanf("%ld %ld", &n, &m);	
+	scanf("%d %d", &n, &m);	
 	degree.resize(n);
 	edges.resize(2*m);
 
 	for (int i=0; i<2*m; i++)
 	{
-		scanf("%ld %ld %lg %lg", &edges[i].u, &edges[i].v, &edges[i].w1, &edges[i].w2);
+		scanf("%d %d %lg %lg", &edges[i].u, &edges[i].v, &edges[i].w1, &edges[i].w2);
 		edges[i].u--;
 		edges[i].v--;
 		edges[i].w1=-log(0.01);
@@ -724,13 +724,13 @@ void Graph::Build2DT(char *file)
 	built = true;
 
 	FILE* in = fopen(file, "r");
-	fscanf(in,"%ld %ld", &n, &m);	
+	fscanf(in,"%d %d", &n, &m);	
 
 	degree.resize(n);
 	edges.resize(m);
 	for (int i=0; i<m; i++)
 	{
-		fscanf(in, "%ld %ld\n", &edges[i].u, &edges[i].v);
+		fscanf(in, "%d %d\n", &edges[i].u, &edges[i].v);
 		int x=rand();
 		if(x%3==0)
 		{
@@ -761,13 +761,13 @@ void Graph::Build2UT(char *file)
 	built = true;
 
     FILE* in = fopen(file, "r");
-	fscanf(in,"%ld %ld", &n, &m);	
+	fscanf(in,"%d %d", &n, &m);	
 
 	degree.resize(n);
 	edges.resize(m);
 	for (int i=0; i<m; i++)
 	{
-		fscanf(in, "%ld %ld\n", &edges[i].u, &edges[i].v);
+		fscanf(in, "%d %d\n", &edges[i].u, &edges[i].v);
 
 		int x=rand();
 		if(x%3==0)
@@ -808,7 +808,7 @@ void Graph::BuildFromFile2DT(char *file){
 	built = true;
 
 	FILE* in = fopen(file, "r");
-	fscanf(in,"%ld %ld", &n, &m);	
+	fscanf(in,"%d %d", &n, &m);	
 
 	degree.resize(n);
 	indegree.resize(n);
@@ -819,7 +819,7 @@ void Graph::BuildFromFile2DT(char *file){
 
 	for (int i=0; i<m; i++)
 	{
-		fscanf(in,"%ld %ld %lf %lf", &edges[i].u, &edges[i].v, &edges[i].w1, &edges[i].w2);
+		fscanf(in,"%d %d %lf %lf", &edges[i].u, &edges[i].v, &edges[i].w1, &edges[i].w2);
 		
 		edges[i].w1 = -log(edges[i].w1);
 		edges[i].w2 = 20000;
@@ -883,7 +883,7 @@ void Graph::BuildFromFile2UT(char *file){
 	built = true;
 
 	FILE* in = fopen(file, "r");
-	fscanf(in,"%ld %ld", &n, &m);	
+	fscanf(in,"%d %d", &n, &m);	
 
 	degree.resize(n);
 	indegree.resize(n);
@@ -893,7 +893,7 @@ void Graph::BuildFromFile2UT(char *file){
 
 	for (int i=0; i<m; i++)
 	{
-		fscanf(in,"%ld %ld %lf %lf", &edges[i].u, &edges[i].v,  &edges[i].w1, &edges[i].w2);
+		fscanf(in,"%d %d %lf %lf", &edges[i].u, &edges[i].v,  &edges[i].w1, &edges[i].w2);
 		edges[i].w1 = -log(edges[i].w1);
 		edges[i].w2 = -log(edges[i].w2);
 		edges[i+m].u = edges[i].v;
