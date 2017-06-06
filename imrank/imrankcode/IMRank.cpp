@@ -8,6 +8,30 @@
 #include <math.h>
 #include <time.h>
 #include <vector>
+//cuonghn. measure time
+#include <chrono>
+#include <ctime>
+#include <ratio>
+#include "memoryusage.h"
+
+using namespace std::chrono;
+
+void displayTimeUSed(high_resolution_clock::time_point& startTime)
+{
+    high_resolution_clock::time_point endTime = high_resolution_clock::now();
+    duration<double> interval = duration_cast<duration<double>>(endTime-startTime);
+    double timeUsed = (double)interval.count();
+
+    char str[100];
+    //sprintf(str,"%.6lf",timeUsed[i]/TIMES_PER_SEC );
+    sprintf(str,"%.6lf", timeUsed);
+    string s=str;
+    if ((int)s.size()<15) s=" "+s;
+    char t[100];
+    memset(t, 0, sizeof t);
+    sprintf(t,"Spend %s seconds on InfluenceMaximize(Total Time)",s.c_str());
+    cout<< t << endl;
+}
 
 int imrank::n = 0;
 int imrank::top = 0;
@@ -142,10 +166,11 @@ int imrank::GetLeaders(int node)
 
 double imrank::Build(char *initialRank, int& l, int& k)
 {
+	high_resolution_clock::time_point startTime = high_resolution_clock::now();
 	constructEdges();
-	clock_t start_time, end_time;
-	start_time = clock();
-	end_time = clock();
+	// clock_t start_time, end_time;
+	// start_time = clock();
+	// end_time = clock();
 	n = Graph::GetN();	
 	dp.resize(n);
 	dd.resize(n);
@@ -204,8 +229,8 @@ double imrank::Build(char *initialRank, int& l, int& k)
 		if(round == IMRank_LOOP){
 		//if(diff_top_k){
 		//if(round > 20){
-			end_time = clock();
-			timer = end_time - start_time;
+			// end_time = clock();
+			// timer = end_time - start_time;
 				for(int j=1; j<k+1; j++)
 				{
 					list[j-1] = rankIDs[n-j];
@@ -224,12 +249,12 @@ double imrank::Build(char *initialRank, int& l, int& k)
 		DeliverCertainLeaders(n, l, rankIDs, rankNodes);
 
 	}while(true);
-
+	disp_mem_usage();
 	free(oldScores);
 	free(oldRank);
 	free(rankIDs);
-
-	timer = (double)(end_time-start_time);
+	displayTimeUSed(startTime);
+	// timer = (double)(end_time-start_time);
 	return 1;
 }
 
