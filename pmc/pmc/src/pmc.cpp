@@ -5,6 +5,7 @@
 #include <stack>
 #include <algorithm>
 #include "pmc.hpp"
+#include "memoryusage.h"
 
 using namespace std;
 
@@ -363,6 +364,7 @@ vector<int> InfluenceMaximizer::run(vector<pair<pair<int, int>, double> > &es,
 		}
 		seeds.push_back(next);
 	}
+	disp_mem_usage();
 	return seeds;
 }
 
